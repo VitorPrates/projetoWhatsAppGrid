@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --mensagem-dela: #907AD6;
+  --minha-mensagem: #DABFFF;
+  --background-conversas: #4F518C;
+  --background-navegando: #2C2A4A;
+  --atencao: #7FDEFF;
+  --filtro: invert(100%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+
+html {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas: "botoes contatos contato" "botoes contatos conversa";
+  grid-template-columns: 55px 30% auto;
+  grid-template-rows: 70px auto;
+}
+
+.header_contato {
+  background-color: var(--background-navegando);
+  grid-area: contato;
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+.header_contato img {
+  height: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  margin: 10px;
+}
+.header_contato h3 {
+  filter: var(--filtro);
+}
+
+.barra_lateral {
+  background-color: var(--background-navegando);
+  grid-area: botoes;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--atencao);
+}
+.barra_lateral nav {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.barra_lateral nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 25px;
+}
+.barra_lateral nav ul li {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.35s ease-in-out;
+}
+.barra_lateral nav ul li img {
+  filter: invert(100%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+.barra_lateral nav ul li .profile_foto_lateral {
+  filter: none;
+  width: 100%;
+  border-radius: 50%;
+}
+.barra_lateral nav ul li:hover {
+  background-color: blue;
+}
+
+.todos_contatos {
+  background-color: var(--background-navegando);
+  grid-area: contatos;
+  border-right: 1px solid var(--atencao);
+  display: grid;
+  grid-template-rows: 16% 82%;
+  overflow: scroll;
+}
+.todos_contatos .top_contatos nav {
+  display: flex;
+  flex-direction: row;
+}
+.todos_contatos .top_contatos nav h2 {
+  margin: 10px auto 0 10px;
+  filter: var(--filtro);
+}
+.todos_contatos .top_contatos nav a {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.35s;
+}
+.todos_contatos .top_contatos nav a img {
+  margin: 20px;
+  filter: invert(100%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+.todos_contatos .top_contatos nav a:hover {
+  background-color: blue;
+}
+.todos_contatos .top_contatos .form_contatos {
+  text-align: center;
+}
+.todos_contatos .top_contatos .form_contatos input {
+  width: 90%;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  padding: 10px 10px;
+  margin: 0 auto 10px auto;
+  font-weight: 600;
+}
+.todos_contatos .top_contatos .form_contatos nav {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  gap: 10px;
+}
+.todos_contatos .top_contatos .form_contatos nav button {
+  padding: 5px 5px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: var(--atencao);
+  background-color: var(--background-navegando);
+  font-weight: 600;
+}
+.todos_contatos .top_contatos .form_contatos nav .btn_selected {
+  background-color: var(--background-conversas);
+  border: 1px solid var(--atencao);
+}
+.todos_contatos .down_contatos {
+  height: 100%;
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.todos_contatos .down_contatos .contato {
+  margin: 5px auto;
+  padding: 5px 0;
+  width: 95%;
+  height: 75px;
+  background-color: var(--background-conversas);
+  border-radius: 10px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 20% 65% 15%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "foto nome" "foto papo";
+  cursor: pointer;
+}
+.todos_contatos .down_contatos .contato .foto_colega {
+  grid-area: foto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.todos_contatos .down_contatos .contato .foto_colega img {
+  width: 70%;
+  max-width: 60px;
+  background-color: var(--mensagem-dela);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todos_contatos .down_contatos .contato h3 {
+  grid-area: nome;
+  color: var(--minha-mensagem);
+  display: flex;
+  align-items: end;
+}
+.todos_contatos .down_contatos .contato p {
+  grid-area: papo;
+  color: var(--mensagem-dela);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 95%;
+}
+.todos_contatos .down_contatos .contato .hora_mensagem, .todos_contatos .down_contatos .contato .quant_mensagem {
+  color: var(--atencao);
+  text-align: center;
+  font-weight: 600;
+}
+.todos_contatos .down_contatos .contato .quant_mensagem {
+  background-color: #DABFFF;
+  color: var(--background-navegando);
+  width: 25px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.todos_contatos .down_contatos .contato::after {
+  content: "Nome";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: var(--background-navegando);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 100%;
+  transition: 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.todos_contatos .down_contatos .contato:hover::after {
+  right: 0;
+  background-color: var(--minha-mensagem);
+}
+.todos_contatos ::-webkit-scrollbar {
+  display: none;
+}
+
+.main_conversa {
+  background-color: var(--background-conversas);
+  grid-area: conversa;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 90% 10%;
+}
+.main_conversa .campo_conversa {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-conversas);
+}
+.main_conversa .campo_conversa .display_conversa {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  row-gap: 10px;
+  height: 100%;
+  grid-auto-rows: min-content;
+  grid-auto-columns: min-content;
+  align-content: end;
+}
+.main_conversa .campo_conversa .display_conversa .recebendo, .main_conversa .campo_conversa .display_conversa .enviando {
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.main_conversa .campo_conversa .display_conversa .recebendo {
+  grid-column: 2/15;
+  background-color: var(--mensagem-dela);
+  border-radius: 0px 5px 5px 5px;
+}
+.main_conversa .campo_conversa .display_conversa .enviando {
+  grid-column: 10/-2;
+  margin: 0 0 0 auto;
+  background-color: var(--minha-mensagem);
+  border-radius: 5px 0px 5px 5px;
+}
+.main_conversa .campo_envio {
+  border-top: 1px solid var(--atencao);
+  background-color: var(--background-navegando);
+  display: grid;
+  grid-template-columns: 60px 60px 1fr 60px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.main_conversa .campo_envio img {
+  filter: var(--filtro);
+  margin: auto;
+  width: 50%;
+}
+.main_conversa .campo_envio form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main_conversa .campo_envio form input {
+  width: 100%;
+  height: 50%;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  padding: 0 10px;
+}/*# sourceMappingURL=styles.css.map */
