@@ -278,6 +278,8 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   max-width: 735px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .main_conversa .campo_conversa .display_conversa .recebendo {
   grid-column: 2/15;

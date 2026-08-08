@@ -315,6 +315,8 @@ body{
                 width: fit-content;
                 // text-align: justify;
                 max-width: 735px;   
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .recebendo
             {
