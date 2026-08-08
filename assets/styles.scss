@@ -287,28 +287,29 @@ body{
     height: 100%;
     display: grid;
     grid-template-rows: 90% 10%;
+    overflow: auto;
     .campo_conversa
     {
         width: 100%;
         height: 100%;
         background-color: var(--background-conversas);
-        
         .display_conversa
         {
             padding: 10px 0;
             display: grid;
             grid-template-columns: repeat(24,1fr);
             row-gap: 10px;
+            width: 100%;
             height: 100%;
-            grid-auto-rows: min-content;
-            grid-auto-columns: min-content;
-            align-content: end;
+            background-color: red;
+            // align-content: end;
+            overflow: scroll;
             .recebendo,.enviando
             {
                 height: fit-content;
                 padding: 10px;
                 width: fit-content;
-                
+                max-width: 735px;   
             }
             .recebendo
             {
@@ -322,7 +323,6 @@ body{
                 grid-column: 10 / -2;
                 margin: 0 0 0 auto;
                 background-color: var(--minha-mensagem);
-              
                 border-radius: 5px 0px 5px 5px;
             }
         }
