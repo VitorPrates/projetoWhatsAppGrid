@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #cfcfcf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pai {
+  width: 200px;
+  height: 100px;
+  background-color: rgb(158, 158, 158);
+  position: relative;
+}
+.pai .triangulo {
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid #7e7e7e;
+  rotate: 180deg;
+  position: absolute;
+  right: 25%;
+}
+
+.folha {
+  width: 100px;
+  height: 200px;
+  background-color: white;
+  position: relative;
+}
+.folha .orelha-fora {
+  border-left: 50px solid transparent;
+  border-right: 50px solid #b6b6b6;
+  border-bottom: 50px solid #cfcfcf;
+  position: absolute;
+  rotate: -180deg;
+  top: 0;
+  right: -50px;
+}
+
+.pacman {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: relative;
+}
+.pacman .olho {
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+.pacman .boca {
+  position: absolute;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 90px solid #cfcfcf;
+  rotate: -90deg;
+  top: 28%;
+  right: 0px;
+}
+
+.google {
+  width: 0px;
+  height: 0px;
+  border-left: 50px solid red;
+  border-top: 50px solid green;
+  border-right: 50px solid yellow;
+  border-bottom: 50px solid blue;
+  border-radius: 50%;
+  position: relative;
+}
+.google .branco {
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -35px;
+  left: -35px;
+  border-radius: 50%;
+}
+
+.mensagem {
+  width: 350px;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  background-color: rebeccapurple;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+}
+.mensagem span {
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
+}
+.mensagem .indicador {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rebeccapurple;
+  position: absolute;
+  top: 0;
+  left: -20px;
+}/*# sourceMappingURL=estilos.css.map */
