@@ -79,22 +79,13 @@ body {
 }
 
 .google {
-  width: 0px;
-  height: 0px;
-  border-left: 50px solid red;
-  border-top: 50px solid green;
-  border-right: 50px solid yellow;
-  border-bottom: 50px solid blue;
-  border-radius: 50%;
-  position: relative;
-}
-.google .branco {
+  width: 90px;
+  height: 90px;
   background-color: white;
-  width: 70px;
-  height: 70px;
-  position: absolute;
-  top: -35px;
-  left: -35px;
+  border-left: 15px solid red;
+  border-top: 15px solid green;
+  border-right: 15px solid yellow;
+  border-bottom: 15px solid blue;
   border-radius: 50%;
 }
 
