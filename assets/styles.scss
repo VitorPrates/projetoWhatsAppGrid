@@ -103,16 +103,69 @@ body{
     grid-template-rows: 16% 82%;
     overflow: scroll;
     position: relative;
+    overflow: hidden;
     .perfil
     {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: red;
+        background-color: var(--mensagem-dela);
         z-index: 3;
         display: grid;
         grid-template-rows: 30px 210px repeat(5 , 30px) auto 30px 90px;
-
+        padding: 5px 15px;
+        left: -100%;
+        transition: 0.3s;
+        .profile_foto_view
+        {
+            border-radius: 50%;
+            margin: auto;
+            box-shadow: 1px 1px 7px black;
+            width: 50%;
+        }
+        h3,h4
+        {
+            font-weight: 400;
+        }
+        .meu_telefone
+        {
+            display: flex;
+            align-items: center;
+            height: fit-content;
+            .phone_icon_view_perfil
+            {
+                margin-right: 5px;
+            }
+            .copy_phone_btn
+            {
+                margin-left: auto;
+            }
+        }
+        nav
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            .perfil_troca
+            {
+                height: 100%;
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .profile_foto_lateral
+                {
+                    width: 50px;
+                    aspect-ratio: 1 / 1;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+    .aparecer_perfil
+    {
+        left: 0;
     }
     .top_contatos
     {

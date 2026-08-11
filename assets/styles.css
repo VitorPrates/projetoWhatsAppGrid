@@ -96,15 +96,62 @@ body {
   grid-template-rows: 16% 82%;
   overflow: scroll;
   position: relative;
+  overflow: hidden;
 }
 .todos_contatos .perfil {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: var(--mensagem-dela);
   z-index: 3;
   display: grid;
   grid-template-rows: 30px 210px repeat(5, 30px) auto 30px 90px;
+  padding: 5px 15px;
+  left: -100%;
+  transition: 0.3s;
+}
+.todos_contatos .perfil .profile_foto_view {
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 1px 1px 7px black;
+  width: 50%;
+}
+.todos_contatos .perfil h3, .todos_contatos .perfil h4 {
+  font-weight: 400;
+}
+.todos_contatos .perfil .meu_telefone {
+  display: flex;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.todos_contatos .perfil .meu_telefone .phone_icon_view_perfil {
+  margin-right: 5px;
+}
+.todos_contatos .perfil .meu_telefone .copy_phone_btn {
+  margin-left: auto;
+}
+.todos_contatos .perfil nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.todos_contatos .perfil nav .perfil_troca {
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.todos_contatos .perfil nav .perfil_troca .profile_foto_lateral {
+  width: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.todos_contatos .aparecer_perfil {
+  left: 0;
 }
 .todos_contatos .top_contatos nav {
   display: flex;
