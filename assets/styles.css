@@ -83,6 +83,7 @@ body {
   filter: none;
   width: 100%;
   border-radius: 50%;
+  cursor: pointer;
 }
 .barra_lateral nav ul li:hover {
   background-color: blue;
