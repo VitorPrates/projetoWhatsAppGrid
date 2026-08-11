@@ -81,8 +81,34 @@ body{
         rotate: -90deg;
         top: 28%;
         right: 0px;
+        animation: animarboca 3s infinite;
+        overflow: hidden
+        
+        ;
     }
 }
+@keyframes animarboca {
+    0%
+    {
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 90px solid #cfcfcf;
+    }
+    50%
+    {
+        border-left: 0px solid transparent;
+        border-right: 0px solid transparent;
+        border-bottom: 90px solid #cfcfcf;
+    }
+    100%
+    {
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 90px solid #cfcfcf;
+    }
+}
+
+
 .google
 {
     width: 90px;
