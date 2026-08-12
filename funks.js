@@ -16,6 +16,7 @@ function enviar_mensagem(form)
     let msg = new FormData(form)
     // console.log(msg.get("msg_field"));
     if (msg.get("msg_field") == "" || msg.get("msg_field").trim() == "") {
+        form.reset()
         return
     }
     let texto_enviar = document.createElement("p")
