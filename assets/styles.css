@@ -116,6 +116,7 @@ body {
   margin: auto;
   box-shadow: 1px 1px 7px black;
   width: 50%;
+  max-width: 170px;
 }
 .todos_contatos .perfil h3, .todos_contatos .perfil h4 {
   font-weight: 400;
@@ -336,8 +337,7 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   max-width: 735px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
 }
 .main_conversa .campo_conversa .display_conversa .recebendo {
   grid-column: 2/15;

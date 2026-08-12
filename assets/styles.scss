@@ -123,6 +123,7 @@ body{
             margin: auto;
             box-shadow: 1px 1px 7px black;
             width: 50%;
+            max-width: 170px;
         }
         h3,h4
         {
@@ -381,8 +382,7 @@ body{
                 width: fit-content;
                 // text-align: justify;
                 max-width: 735px;   
-                overflow: hidden;
-                text-overflow: ellipsis;
+                word-break: break-word;
             }
             .recebendo
             {
