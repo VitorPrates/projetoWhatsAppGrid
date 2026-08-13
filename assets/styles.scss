@@ -115,7 +115,7 @@ body{
         display: grid;
         grid-template-rows: 30px 210px repeat(5 , 30px) auto 30px 90px;
         padding: 5px 15px;
-        left: 0%;
+        left: -100%;
         transition: 0.3s;
         .profile_foto_view
         {
@@ -383,6 +383,28 @@ body{
                 // text-align: justify;
                 max-width: 735px;   
                 word-break: break-word;
+                width: 350px;
+                height: fit-content;
+                position: relative;
+                background-color: var(--mensagem-dela);
+                padding: 10px 20px;
+                // color: white;
+                border-radius: 10px;
+                span
+                {
+                    position: absolute;
+                    right: 15px;
+                    bottom: 5px;
+                }
+                .indicador
+                {
+                    border-left: 20px solid transparent;
+                    border-right: 20px solid transparent;
+                    border-top: 20px solid var(--mensagem-dela);
+                    position: absolute;
+                    top: 0;
+                    left: -20px;
+                }
             }
             .recebendo
             {
