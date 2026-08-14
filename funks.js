@@ -1,6 +1,8 @@
-import usuarios from "./assets/contatos.js"
+import {usuarios, listar_todos, listar_contatos_user} from "./assets/contatos.js"
 
-console.table(usuarios["whats-users"][0]);
+// console.table(listar_todos())
+// listar_contatos_user(2)
+// console.table(usuarios["whats-users"][0]);
 
 
 const display_conversa = document.querySelector(".display_conversa")
@@ -45,6 +47,12 @@ img_perfil.addEventListener("click", ()=>{
 //atualizar perfil
 function atualizar_perfil_atual()
 {
-    perfil_nickname.innerText = perfil_atual.nickname
+    perfil_nickname.innerText = perfil_atual.account
     perfil_telefone.innerText = perfil_atual.number
+
 }
+
+window.addEventListener("load", () => {
+    atualizar_perfil_atual()
+})
+
