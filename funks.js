@@ -1,9 +1,20 @@
+import usuarios from "./assets/contatos.js"
+
+console.table(usuarios["whats-users"][0]);
+
+
 const display_conversa = document.querySelector(".display_conversa")
 
 const img_perfil = document.querySelector(".profile_foto_lateral")
 const view_perfil = document.querySelector(".perfil")
 
+let perfil_atual = usuarios["whats-users"][0]
 
+//vizualizando perfil
+let profile_foto_view = document.getElementById("profile_foto_view")
+let perfil_nickname = document.getElementById("perfil_nickname")
+let perfil_recado = document.getElementById("perfil_recado")
+let perfil_telefone = document.getElementById("perfil_telefone")
 
 let form_envio_msg = document.getElementById("form_envio_msg")
 
@@ -30,3 +41,10 @@ function enviar_mensagem(form)
 img_perfil.addEventListener("click", ()=>{
     view_perfil.classList.toggle("aparecer_perfil")
 })
+
+//atualizar perfil
+function atualizar_perfil_atual()
+{
+    perfil_nickname.innerText = perfil_atual.nickname
+    perfil_telefone.innerText = perfil_atual.number
+}

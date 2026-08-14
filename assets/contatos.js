@@ -1,4 +1,4 @@
-const contatos = {
+const usuarios = {
   "whats-users": [
     {
       id: 1,
@@ -599,4 +599,25 @@ const contatos = {
   ],
 };
 
-export default contatos
+//todos os usuários
+function listar_todos() {
+  console.table(usuarios["whats-users"])
+}
+// listar_todos()
+
+//recbe o indice do user, retorna todos os contatos dele
+function listar_contatos_user(user_id)
+{
+   console.table(usuarios["whats-users"][user_id].contacts)
+}
+// listar_contatos_user(0)
+
+//recebe o indice do user e o contato e lista todas as mensagens trocadas com este contato
+function contato_mensagens(user_id,conversante_id)
+{
+  console.table(usuarios["whats-users"][user_id].contacts[conversante_id].messages)
+}
+// contato_mensagens(0,0)
+
+
+export default usuarios
