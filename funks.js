@@ -46,6 +46,9 @@ img_perfil.addEventListener("click", ()=>{
     view_perfil.classList.toggle("aparecer_perfil")
 })
 
+
+
+
 //atualizar perfil
 function atualizar_perfil_atual()
 {
@@ -61,7 +64,18 @@ function atualizar_perfil_atual()
         </div>
                 `
     })
+    //Para trocar de perfil / conta
+    let perfil_troca = document.querySelectorAll(".perfil_troca")
+    perfil_troca.forEach((perfil,index) =>{
+        perfil.addEventListener("click", ()=>{
+            // console.log(index);
+            perfil_atual = usuarios["whats-users"][index]
+            atualizar_perfil_atual()
+        })
+    })
 }
+
+
 
 window.addEventListener("load", () => {
     atualizar_perfil_atual()
