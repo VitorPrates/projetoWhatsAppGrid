@@ -12,6 +12,7 @@ const view_perfil = document.querySelector(".perfil")
 
 let perfil_atual = usuarios["whats-users"][0]
 
+
 //vizualizando perfil
 let profile_foto_view = document.getElementById("profile_foto_view")
 let perfil_nickname = document.getElementById("perfil_nickname")
@@ -56,10 +57,10 @@ function atualizar_perfil_atual()
     perfil_telefone.innerText = perfil_atual.number
     let contas = listar_todos()
     contas_disponiveis.innerHTML = ""
-    contas.forEach((conta)=>{
+    contas.forEach((conta,index)=>{
         contas_disponiveis.innerHTML += `
          <div class="perfil_troca">
-            <img class="profile_foto_lateral" src="https://fastly.picsum.photos/id/177/200/200.jpg?hmac=785Vry8HsdS9dQ7mFYbwV8bR2tWVtzJWWl9YLp6L0n8" alt="" srcset="">
+            <img class="profile_foto_lateral" src="https://i.pravatar.cc/150?img=${index} alt="" srcset="">
             <p>${conta.nickname}</p>
         </div>
                 `
@@ -73,9 +74,37 @@ function atualizar_perfil_atual()
             atualizar_perfil_atual()
         })
     })
+    atualizar_contatos_atual()
 }
 
+//atualizar contatos
+function atualizar_contatos_atual()
+{
+    let contatos = perfil_atual.contacts
+    let todos_contatos = document.getElementById("lista_contatos")
 
+    for (let index = 0; index < 20; index++) {
+        
+    }
+    contatos.forEach(contato =>{
+        console.log(contato);
+        todos_contatos.innerHTML += `
+        <div class="contato">
+            <div class="foto_colega">
+                <img src="" alt="Foto">
+            </div>
+            <h3>${contato.name}</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, libero quisquam. Praesentium cupiditate optio nulla, porro voluptatem vitae maiores eaque tempora. Excepturi quos exercitationem sed maxime quisquam officiis expedita! Dolorum!</p>
+            <span class="hora_mensagem">19:27</span>
+            <span class="quant_mensagem">4</span>
+        </div>`
+    })
+    let contato_salvo = document.querySelectorAll(".contato")
+    contato_salvo.forEach(contato =>{
+        const afterStyles = window.getComputedStyle(contato, '::after');
+        afterStyles.textCon = "red";
+    })
+}
 
 window.addEventListener("load", () => {
     atualizar_perfil_atual()
