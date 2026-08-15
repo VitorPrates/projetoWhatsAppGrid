@@ -145,6 +145,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .todos_contatos .perfil nav .perfil_troca .profile_foto_lateral {
   width: 50px;

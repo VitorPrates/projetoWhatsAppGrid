@@ -17,6 +17,8 @@ let profile_foto_view = document.getElementById("profile_foto_view")
 let perfil_nickname = document.getElementById("perfil_nickname")
 let perfil_recado = document.getElementById("perfil_recado")
 let perfil_telefone = document.getElementById("perfil_telefone")
+let contas_disponiveis = document.getElementById("contas_disponiveis")
+
 
 let form_envio_msg = document.getElementById("form_envio_msg")
 
@@ -49,7 +51,16 @@ function atualizar_perfil_atual()
 {
     perfil_nickname.innerText = perfil_atual.account
     perfil_telefone.innerText = perfil_atual.number
-
+    let contas = listar_todos()
+    contas_disponiveis.innerHTML = ""
+    contas.forEach((conta)=>{
+        contas_disponiveis.innerHTML += `
+         <div class="perfil_troca">
+            <img class="profile_foto_lateral" src="https://fastly.picsum.photos/id/177/200/200.jpg?hmac=785Vry8HsdS9dQ7mFYbwV8bR2tWVtzJWWl9YLp6L0n8" alt="" srcset="">
+            <p>${conta.nickname}</p>
+        </div>
+                `
+    })
 }
 
 window.addEventListener("load", () => {
