@@ -31,6 +31,12 @@ form_envio_msg.addEventListener("submit", (e) => {
 function enviar_mensagem(form)
 {
     let msg = new FormData(form)
+    const agora = new Date();
+    const horas = String(agora.getHours()).padStart(2, '0');
+    const minutos = String(agora.getMinutes()).padStart(2, '0');
+
+    const horaFormatada = `${horas}:${minutos}`;
+
     // console.log(msg.get("msg_field"));
     if (msg.get("msg_field") == "" || msg.get("msg_field").trim() == "") {
         form.reset()
@@ -46,7 +52,7 @@ function enviar_mensagem(form)
     indicador.classList.add("indicador-me")
 
     content.innerHTML += msg.get("msg_field")
-    hora_msg.innerHTML = "00:00"
+    hora_msg.innerHTML = horaFormatada
     
     bloco_texto.appendChild(content)
     bloco_texto.appendChild(hora_msg)
