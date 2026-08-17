@@ -34,7 +34,7 @@ function enviar_mensagem(form)
         form.reset()
         return
     }
-    let texto_enviar = document.createElement("p")
+    let texto_enviar = document.createElement("span")
     texto_enviar.classList.add("enviando")
     texto_enviar.innerHTML += msg.get("msg_field")
     display_conversa.appendChild(texto_enviar)
@@ -56,6 +56,8 @@ function atualizar_perfil_atual()
     perfil_telefone.innerText = perfil_atual.number
     let contas = listar_todos()
     let conversante_atual = document.getElementById("conversante_atual")
+    let display_conversa = document.getElementById("display_conversa")
+    display_conversa.innerHTML = ""
     conversante_atual.innerHTML = ""
     contas_disponiveis.innerHTML = ""
     contas.forEach((conta,index)=>{
@@ -106,14 +108,39 @@ function atualizar_contatos_atual()
     let conversante_atual = document.getElementById("conversante_atual")
     contato_salvo.forEach((contato,index) =>{
         contato.addEventListener("click", (e)=>{
-            console.log(perfil_atual.contacts[index].name);
+            atualizar_conversas_tela(perfil_atual.contacts[index].messages);
             conversante_atual.innerHTML = perfil_atual.contacts[index].name
+
         })
     })
 }
 
-function atualizar_conversas_tela()
+function atualizar_conversas_tela(mensagens)
 {
+    let display_conversa = document.getElementById("display_conversa")
+    display_conversa.innerHTML = ""
+    mensagens.forEach(mensagem => {
+        console.log(mensagem);
+        if (mensagem.sender == "me") {
+           display_conversa.innerHTML += `
+                <span class="enviando">
+                    <div class="msg">${mensagem.content}</div>
+                    <span>${mensagem.time}</span>
+                    <div class="indicador-me"></div>
+                </span>
+           `
+        }
+        else
+        {
+             display_conversa.innerHTML += `
+                <span class="recebendo">
+                    <div class="msg">${mensagem.content}</div>
+                    <span>${mensagem.time}</span>
+                    <div class="indicador"></div>
+                </span>
+            `
+        }
+    })
     
 }
 

@@ -391,11 +391,16 @@ body{
                 padding: 10px 20px;
                 // color: white;
                 border-radius: 10px;
+                
                 span
                 {
                     position: absolute;
                     right: 15px;
                     bottom: 5px;
+                }
+                .msg
+                {
+                    padding-right: 20px;
                 }
                 .indicador
                 {
@@ -406,6 +411,15 @@ body{
                     top: 0;
                     left: -20px;
                 }
+                .indicador-me
+                {
+                    border-left: 20px solid transparent;
+                    border-right: 20px solid transparent;
+                    border-top: 20px solid var(--minha-mensagem);
+                    position: absolute;
+                    top: 0;
+                    right: -20px;
+                }
             }
             .recebendo
             {
@@ -413,6 +427,7 @@ body{
                 grid-column: 2 / 15;
                 background-color: var(--mensagem-dela);
                 border-radius: 0px 5px 5px 5px;
+                
             }
             .enviando
             {
@@ -420,6 +435,7 @@ body{
                 margin: 0 0 0 auto;
                 background-color: var(--minha-mensagem);
                 border-radius: 5px 0px 5px 5px;
+                
             }
         }
         

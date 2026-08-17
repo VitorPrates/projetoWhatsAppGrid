@@ -351,6 +351,9 @@ body {
   right: 15px;
   bottom: 5px;
 }
+.main_conversa .campo_conversa .display_conversa .recebendo .msg, .main_conversa .campo_conversa .display_conversa .enviando .msg {
+  padding-right: 20px;
+}
 .main_conversa .campo_conversa .display_conversa .recebendo .indicador, .main_conversa .campo_conversa .display_conversa .enviando .indicador {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
@@ -358,6 +361,14 @@ body {
   position: absolute;
   top: 0;
   left: -20px;
+}
+.main_conversa .campo_conversa .display_conversa .recebendo .indicador-me, .main_conversa .campo_conversa .display_conversa .enviando .indicador-me {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid var(--minha-mensagem);
+  position: absolute;
+  top: 0;
+  right: -20px;
 }
 .main_conversa .campo_conversa .display_conversa .recebendo {
   grid-column: 2/15;
