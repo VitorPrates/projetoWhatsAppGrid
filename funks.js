@@ -55,6 +55,8 @@ function atualizar_perfil_atual()
     perfil_nickname.innerText = perfil_atual.account
     perfil_telefone.innerText = perfil_atual.number
     let contas = listar_todos()
+    let conversante_atual = document.getElementById("conversante_atual")
+    conversante_atual.innerHTML = ""
     contas_disponiveis.innerHTML = ""
     contas.forEach((conta,index)=>{
         // profile_foto_view.src = `https://i.pravatar.cc/150?img=${index+1}`
@@ -92,7 +94,7 @@ function atualizar_contatos_atual()
         todos_contatos.innerHTML += `
         <div class="contato">
             <div class="foto_colega">
-                <img src="" alt="Foto">
+                <img src="./assets/imgs/defaultperfil.gif" alt="Foto">
             </div>
             <h3>${contato.name}</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, libero quisquam. Praesentium cupiditate optio nulla, porro voluptatem vitae maiores eaque tempora. Excepturi quos exercitationem sed maxime quisquam officiis expedita! Dolorum!</p>
@@ -101,11 +103,21 @@ function atualizar_contatos_atual()
         </div>`
     })
     let contato_salvo = document.querySelectorAll(".contato")
-    contato_salvo.forEach(contato =>{
-        const afterStyles = window.getComputedStyle(contato, '::after');
-        afterStyles.textCon = "red";
+    let conversante_atual = document.getElementById("conversante_atual")
+    contato_salvo.forEach((contato,index) =>{
+        contato.addEventListener("click", (e)=>{
+            console.log(perfil_atual.contacts[index].name);
+            conversante_atual.innerHTML = perfil_atual.contacts[index].name
+        })
     })
 }
+
+function atualizar_conversas_tela()
+{
+    
+}
+
+
 
 window.addEventListener("load", () => {
     atualizar_perfil_atual()
