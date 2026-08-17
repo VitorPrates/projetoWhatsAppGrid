@@ -8,6 +8,8 @@ const display_conversa = document.querySelector(".display_conversa")
 
 const img_perfil = document.querySelector(".profile_foto_lateral")
 const view_perfil = document.querySelector(".perfil")
+let mensagem_final = false
+
 
 let perfil_atual = usuarios["whats-users"][0]
 
@@ -48,8 +50,11 @@ function enviar_mensagem(form)
     
     bloco_texto.appendChild(content)
     bloco_texto.appendChild(hora_msg)
-    bloco_texto.appendChild(indicador)
-
+    if(!mensagem_final)
+    {
+        bloco_texto.appendChild(indicador)
+    }
+    mensagem_final = true
     bloco_texto.style.width = "fit-content"
 
     display_conversa.appendChild(bloco_texto)
@@ -125,7 +130,6 @@ function atualizar_contatos_atual()
         contato.addEventListener("click", (e)=>{
             atualizar_conversas_tela(perfil_atual.contacts[index].messages);
             conversante_atual.innerHTML = perfil_atual.contacts[index].name
-
         })
     })
 }
@@ -137,17 +141,19 @@ function atualizar_conversas_tela(mensagens)
     mensagens.forEach(mensagem => {
         console.log(mensagem);
         if (mensagem.sender == "me") {
-           display_conversa.innerHTML += `
+            mensagem_final = true
+            display_conversa.innerHTML += `
                 <span class="enviando">
                     <div class="msg">${mensagem.content}</div>
                     <span>${mensagem.time}</span>
-                    <div class="indicador-me"></div>
+                    ${mensagem_final ? "<div class='indicador-me'></div>" : "" }
                 </span>
            `
         }
         else
         {
-             display_conversa.innerHTML += `
+            mensagem_final = false
+            display_conversa.innerHTML += `
                 <span class="recebendo">
                     <div class="msg">${mensagem.content}</div>
                     <span>${mensagem.time}</span>
