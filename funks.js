@@ -34,10 +34,25 @@ function enviar_mensagem(form)
         form.reset()
         return
     }
-    let texto_enviar = document.createElement("span")
-    texto_enviar.classList.add("enviando")
-    texto_enviar.innerHTML += msg.get("msg_field")
-    display_conversa.appendChild(texto_enviar)
+    let bloco_texto = document.createElement("span")
+    let content = document.createElement("p")
+    let hora_msg = document.createElement("span")
+    let indicador = document.createElement("div")
+    
+    bloco_texto.classList.add("enviando")
+    content.classList.add("msg")
+    indicador.classList.add("indicador-me")
+
+    content.innerHTML += msg.get("msg_field")
+    hora_msg.innerHTML = "00:00"
+    
+    bloco_texto.appendChild(content)
+    bloco_texto.appendChild(hora_msg)
+    bloco_texto.appendChild(indicador)
+
+    bloco_texto.style.width = "fit-content"
+
+    display_conversa.appendChild(bloco_texto)
     display_conversa.scrollTo(0,display_conversa.scrollHeight)
     form.reset()
 }

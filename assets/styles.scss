@@ -381,6 +381,7 @@ body{
                 height: fit-content;
                 padding: 10px;
                 width: fit-content;
+                min-width: 100px;
                 // text-align: justify;
                 max-width: 735px;   
                 word-break: break-word;
@@ -389,6 +390,7 @@ body{
                 position: relative;
                 background-color: var(--mensagem-dela);
                 padding: 10px 20px;
+                padding-bottom: 30px;
                 // color: white;
                 border-radius: 10px;
                 
