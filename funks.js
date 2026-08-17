@@ -4,7 +4,6 @@ import {usuarios, listar_todos, listar_contatos_user} from "./assets/contatos.js
 // listar_contatos_user(2)
 // console.table(usuarios["whats-users"][0]);
 
-
 const display_conversa = document.querySelector(".display_conversa")
 
 const img_perfil = document.querySelector(".profile_foto_lateral")
@@ -58,19 +57,23 @@ function atualizar_perfil_atual()
     let contas = listar_todos()
     contas_disponiveis.innerHTML = ""
     contas.forEach((conta,index)=>{
+        // profile_foto_view.src = `https://i.pravatar.cc/150?img=${index+1}`
         contas_disponiveis.innerHTML += `
          <div class="perfil_troca">
-            <img class="profile_foto_lateral" src="https://i.pravatar.cc/150?img=${index} alt="" srcset="">
+            <img class="profile_foto_lateral" src="https://i.pravatar.cc/150?img=${index+3}" alt="" srcset="">
             <p>${conta.nickname}</p>
         </div>
                 `
     })
     //Para trocar de perfil / conta
     let perfil_troca = document.querySelectorAll(".perfil_troca")
+    let foto_lateral = document.getElementById("profile_foto_lateral")
     perfil_troca.forEach((perfil,index) =>{
         perfil.addEventListener("click", ()=>{
             // console.log(index);
             perfil_atual = usuarios["whats-users"][index]
+            profile_foto_view.src = `https://i.pravatar.cc/150?img=${index+3}`
+            foto_lateral.src = `https://i.pravatar.cc/150?img=${index+3}`
             atualizar_perfil_atual()
         })
     })
@@ -82,10 +85,8 @@ function atualizar_contatos_atual()
 {
     let contatos = perfil_atual.contacts
     let todos_contatos = document.getElementById("lista_contatos")
-
-    for (let index = 0; index < 20; index++) {
-        
-    }
+    
+    todos_contatos.innerHTML = ""
     contatos.forEach(contato =>{
         console.log(contato);
         todos_contatos.innerHTML += `
