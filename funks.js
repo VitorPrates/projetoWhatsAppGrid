@@ -116,7 +116,7 @@ function atualizar_perfil_atual()
         // profile_foto_view.src = `https://i.pravatar.cc/150?img=${index+1}`
         contas_disponiveis.innerHTML += `
          <div class="perfil_troca">
-            <img class="profile_foto_lateral" src="https://i.pravatar.cc/150?img=${index+3}" alt="" srcset="">
+            <img class="profile_foto_lateral ant-escuro" src="https://i.pravatar.cc/150?img=${index+3}" alt="" srcset="">
             <p>${conta.nickname}</p>
         </div>
                 `
