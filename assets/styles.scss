@@ -27,6 +27,14 @@ body{
     grid-template-columns: 55px 30% auto;
     grid-template-rows: 70px auto;
 }   
+.escuro
+{
+    filter: invert(100%);
+}
+.ant-escuro
+{
+    filter: invert(100%);
+}
 .header_contato
 {
     background-color: var(--background-navegando);

@@ -4,6 +4,31 @@ import {usuarios, listar_todos, listar_contatos_user} from "./assets/contatos.js
 // listar_contatos_user(2)
 // console.table(usuarios["whats-users"][0]);
 
+function modo_escuro(atualizar)
+{
+    let pagina = document.querySelector("body")
+    if(atualizar)
+    {
+        pagina.classList.toggle("escuro")
+    }
+    document.querySelectorAll(".ant-escuro").forEach(ant =>{
+        console.log(ant);
+        
+        if(pagina.classList.contains("escuro"))
+        {
+            ant.style.filter = "invert(1)"
+        }
+        else
+        {
+            ant.style.filter = "invert(0)"
+        }
+    })
+}
+
+document.getElementById("settings_control").addEventListener("click",()=>{
+    modo_escuro(true)
+})
+
 const display_conversa = document.querySelector(".display_conversa")
 
 const img_perfil = document.querySelector(".profile_foto_lateral")
@@ -182,5 +207,6 @@ function atualizar_conversas_tela(mensagens)
 
 window.addEventListener("load", () => {
     atualizar_perfil_atual()
+    modo_escuro()
 })
 
