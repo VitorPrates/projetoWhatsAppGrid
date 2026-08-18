@@ -9,6 +9,7 @@ const display_conversa = document.querySelector(".display_conversa")
 const img_perfil = document.querySelector(".profile_foto_lateral")
 const view_perfil = document.querySelector(".perfil")
 let mensagem_final = false
+let quant_msg = 0
 
 
 let perfil_atual = usuarios["whats-users"][0]
@@ -118,24 +119,26 @@ function atualizar_contatos_atual()
     
     todos_contatos.innerHTML = ""
     contatos.forEach(contato =>{
-        console.log(contato);
         todos_contatos.innerHTML += `
         <div class="contato">
             <div class="foto_colega">
                 <img src="./assets/imgs/defaultperfil.gif" alt="Foto">
             </div>
             <h3>${contato.name}</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, libero quisquam. Praesentium cupiditate optio nulla, porro voluptatem vitae maiores eaque tempora. Excepturi quos exercitationem sed maxime quisquam officiis expedita! Dolorum!</p>
-            <span class="hora_mensagem">19:27</span>
-            <span class="quant_mensagem">4</span>
+            <p>${contato.messages.at(-1).content}</p>
+            ${contato.messages.at(-1).sender == "me" ? "" : `<span class="hora_mensagem">${contato.messages.at(-1).time}</span>
+            <span class="quant_mensagem">${1}</span>`}
         </div>`
     })
     let contato_salvo = document.querySelectorAll(".contato")
     let conversante_atual = document.getElementById("conversante_atual")
+    
     contato_salvo.forEach((contato,index) =>{
         contato.addEventListener("click", (e)=>{
             atualizar_conversas_tela(perfil_atual.contacts[index].messages);
             conversante_atual.innerHTML = perfil_atual.contacts[index].name
+            contato.innerHTML = contato.innerHTML.slice(0, -90)
+            
         })
     })
 }
@@ -143,9 +146,12 @@ function atualizar_contatos_atual()
 function atualizar_conversas_tela(mensagens)
 {
     let display_conversa = document.getElementById("display_conversa")
+    
+
+
     display_conversa.innerHTML = ""
     mensagens.forEach(mensagem => {
-        console.log(mensagem);
+        // console.log(mensagem);
         if (mensagem.sender == "me") {
             mensagem_final = true
             display_conversa.innerHTML += `
@@ -159,6 +165,7 @@ function atualizar_conversas_tela(mensagens)
         else
         {
             mensagem_final = false
+            quant_msg += 1
             display_conversa.innerHTML += `
                 <span class="recebendo">
                     <div class="msg">${mensagem.content}</div>
